@@ -22,8 +22,9 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import HomeSharpIcon from "@material-ui/icons/HomeSharp";
+import AssignmentIndSharpIcon from "@material-ui/icons/AssignmentIndSharp";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -128,27 +129,38 @@ export default function PrimarySearchAppBar() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
+      <Link to="/Signin">
+        <List>
+          <ListItem button>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <HomeSharpIcon />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary="Sign-in" />
           </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
+        </List>
+      </Link>
+      <Link to="/">
+        <List>
+          <ListItem button>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <AssignmentIndSharpIcon />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary="Home" />
           </ListItem>
-        ))}
-      </List>
+        </List>
+      </Link>
+      <Link to="/Cart">
+        <List>
+          <ListItem button>
+            <ListItemIcon>
+              <Badge badgeContent={11} color="secondary">
+                <ShoppingCartIcon />
+              </Badge>
+            </ListItemIcon>
+            <ListItemText primary="Shopping Cart" />
+          </ListItem>
+        </List>
+      </Link>
     </div>
   );
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -251,7 +263,7 @@ export default function PrimarySearchAppBar() {
             </Drawer>
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Local Store
+            Welcome!
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
