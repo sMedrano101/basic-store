@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -25,6 +25,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import HomeSharpIcon from "@material-ui/icons/HomeSharp";
 import AssignmentIndSharpIcon from "@material-ui/icons/AssignmentIndSharp";
 import { Link } from "react-router-dom";
+import cartGlobal from "./Context";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -102,6 +103,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
+  let [globalData, setGlobalData] = useContext(cartGlobal);
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -153,7 +155,7 @@ export default function PrimarySearchAppBar() {
         <List>
           <ListItem button>
             <ListItemIcon>
-              <Badge badgeContent={11} color="secondary">
+              <Badge badgeContent={globalData.length} color="secondary">
                 <ShoppingCartIcon />
               </Badge>
             </ListItemIcon>
@@ -223,7 +225,7 @@ export default function PrimarySearchAppBar() {
       </MenuItem> */}
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
+          <Badge badgeContent={globalData.length} color="secondary">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>
@@ -285,8 +287,8 @@ export default function PrimarySearchAppBar() {
                 <MailIcon />
               </Badge>
             </IconButton> */}
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
+            <IconButton aria-label="size of array" color="inherit">
+              <Badge badgeContent={globalData.length} color="secondary">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>

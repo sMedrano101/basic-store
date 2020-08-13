@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "./Navbar";
 import Cards from "./Card";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   let [data, setData] = useState("");
-
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => {
@@ -29,12 +29,15 @@ export default function Home() {
           <Grid container spacing={3}>
             {data.map((el) => (
               <Grid item xs={12} sm={4} key={el.id}>
-                <Cards
-                  img={el.image}
-                  title={el.title}
-                  price={el.price}
-                  desc={el.description}
-                />
+                <Link to={`/Items/${el.id}`} id="styling">
+                  <Cards
+                    img={el.image}
+                    title={el.title}
+                    price={el.price}
+                    id={el.id}
+                    // desc={el.description}
+                  />
+                </Link>
               </Grid>
             ))}
           </Grid>
