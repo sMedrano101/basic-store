@@ -54,7 +54,10 @@ export default function Cards(Props) {
       <CardActions>
         <button
           onClick={() =>
-            setGlobalData([...globalData, { id: Props.id, title: Props.title }])
+            setGlobalData([
+              ...globalData,
+              { id: Props.id, title: Props.title, price: Props.price },
+            ])
           }
         >
           <AddShoppingCartIcon color="primary" />

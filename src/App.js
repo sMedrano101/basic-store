@@ -6,7 +6,7 @@ import Routes from "./Routers";
 function App() {
   return (
     <div className="App">
-      <h1> store app</h1>
+      <h1> Store App</h1>
       <Routes />
     </div>
   );

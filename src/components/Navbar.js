@@ -224,12 +224,14 @@ export default function PrimarySearchAppBar() {
         <p>Messages</p>
       </MenuItem> */}
       <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={globalData.length} color="secondary">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
-        <p>Cart</p>
+        <Link to="/cart" id="styling">
+          <IconButton aria-label="show 11 new notifications" color="inherit">
+            <Badge badgeContent={globalData.length} color="secondary">
+              <ShoppingCartIcon />
+            </Badge>
+          </IconButton>
+          <p>Cart</p>
+        </Link>
       </MenuItem>
       {/* <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -287,11 +289,13 @@ export default function PrimarySearchAppBar() {
                 <MailIcon />
               </Badge>
             </IconButton> */}
-            <IconButton aria-label="size of array" color="inherit">
-              <Badge badgeContent={globalData.length} color="secondary">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
+            <Link to="/Cart">
+              <IconButton aria-label="size of array" color="inherit">
+                <Badge badgeContent={globalData.length} color="secondary">
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+            </Link>
             {/* <IconButton
               edge="end"
               aria-label="account of current user"

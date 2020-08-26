@@ -32,7 +32,10 @@ export default function Items() {
 
           <button
             onClick={() =>
-              setGlobalData([...globalData, { id: el.id, title: el.title }])
+              setGlobalData([
+                ...globalData,
+                { id: el.id, title: el.title, price: el.price },
+              ])
             }
           >
             <AddShoppingCartIcon color="primary" />
