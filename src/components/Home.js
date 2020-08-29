@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import "../App.css";
 import Navbar from "./Navbar";
 import Cards from "./Card";
 import Grid from "@material-ui/core/Grid";
@@ -19,7 +20,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <h1>Products</h1>
+      <h2>Available Products</h2>
       {data.length === 0 ? (
         <div className="spinner">
           <CircularProgress />
